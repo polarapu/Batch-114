@@ -1,0 +1,335 @@
+git init
+
+git config --global user.name "Prasad Polarapu"
+git config --global user.email "devopstraining2015@gmail.com"
+
+git config --list
+
+git config --global --unset user.name
+git config --global --unset user.email
+
+git config --list
+
+git config --global user.name "Prasad Polarapu"
+git config --global user.email "devopstraining2015@gmail.com"
+==============
+touch file1
+ls
+git status
+git add file1
+git status
+git commit -m "sample file1"
+git status
+git log
+git show
+git show c-id
+
+------------------------
+touch file2 file3 file4 file5
+ls
+git status
+git add file2 file3 file4 file5
+or
+git add .
+or
+git add *
+or
+git add -A
+git status
+git commit -m "label"
+git status
+git log
+git show
+
+git add file7  (workspace to staging)
+git reset head file7 (staging to workspace)
+
+git commit -m "label"  (staging to local)
+git reset --soft cid (n-1)  (local to staging)
+
+git reset --mixed cid  (n-1)  (local to workspace)
+
+git reset --hard cid  (n-1)  (To delete commit and committed files)
+
+
+===================================
+create a new repo in git-hub
+git clone https://github.com/abhishekpkulkarni/repo1.git
+ls
+cd repo1
+ls
+touch file1
+ls
+git status
+git add .
+git status
+git commit -m "sample-file"
+git status
+git push
+user-name and password
+
+-------------------------
+
+Edit any file with some data
+git status
+git add .
+git status
+git commit -m "sample data"
+git status
+git push
+
+---------------------------
+
+rm file1    (to delete file)
+ls
+git status
+git add .
+git status
+git commit -m "sample file1 deleted"
+git status
+git push
+
+--------------------------
+
+mkdir dir1
+ls
+git status
+
+cd dir1
+touch f1 f2
+cd ..
+or
+touch dir1/f1
+touch dir1/f2
+
+git status
+git add .
+git status
+git commit -m "sample dir"
+git push
+--------------------------------------
+
+git clone https://github.com/polarapu/Batch-114.git
+ls
+cd Batch-114
+touch prasad
+git status
+git add .
+git status
+git commit -m "sample file form prasad"
+git status
+git push
+
+error: git push
+remote: Permission to polarapu/Batch-114.git denied to abhishekpkulkarni.
+fatal: unable to access 'https://github.com/polarapu/Batch-114.git/': The requested URL returned error: 403
+
+granted permissions  --> accepted
+
+git push
+git pull --rebase
+git push
+
+==========================
+Branch
+-----
+git branch
+git branch release1  (to create a branch)
+git branch
+git checkout release1  (switching branch)
+git checkout main
+touch file12
+git add .
+git commit -m "sample file"
+ls
+git checkout release1
+ls
+ex:- git merge branch-name
+git merge main
+
+git branch -d branch-name  (to delete branch)
+
+git branch release1
+git checkout release1
+
+ex;- git push origin branch-name  (to upload branch into git-hub)
+git push origin release1
+
+.git/config
+------------
+[branch "release1"]
+	remote = origin
+	merge = refs/heads/release1
+touch file20
+git add .
+git commit -m "file20"
+git push
+
+git push origin -d release1  (to delete branch in git-hub)
+
+------------------------------
+
+git log
+git log -n
+git log --oneline
+git log --oneline -n
+git log --author=Prasad
+git log --author=Prasad -n
+git log --author=Prasad --oneline
+git log --author=Prasad --oneline -n
+
+git log --since=yy-mm-dd
+or
+git log --after=yy-mm-dd
+
+git log --until=yy-mm-dd
+or
+git log --before=yy-mm-dd
+
+git log --since=yy-mm-dd --until=yy-mm-dd
+or
+git log --after=yy-mm-dd --before=yy-mm-dd
+
+git log --since="yy-mm-dd 11:00" --until="yy-mm-dd 23:00"
+
+git log --since="yy-mm-dd 11:00" --until="yy-mm-dd 23:00" --author=Prasad
+
+git log --grep "Label"
+
+git log -- file file-name
+
+==================
+Stash
+=====
+git stash list
+touch u1
+git add .
+git status
+git stash save "stash1"
+
+git stash list
+git stash show stash@{0}
+git stash show -p stash@{0}
+
+POP, APPLY, DROP
+================
+
+POP = cut
+----------
+git stash pop
+git stash pop stash@{x}
+
+APPLY = copy
+-------------
+git stash apply
+git stash apply stash@{x}
+
+DROP = delete
+-------------
+git stash drop
+git stash drop stash@{x}
+
+Alias
+=====
+git status
+git config --global alias.s "status"
+git s
+
+git config --list
+git config --global alias.cl "config --list"
+git cl
+
+git commit -m "sample-commit"
+git config --global alias.cmt "commit -m "smaple-commit""
+git cmt
+
+git log --oneline
+git config --global alias.l1 "log --oneline"
+git l1
+
+git config --global --unset alias.l1  (to remove alias)
+
+===========================
+TAG
+===
+git tag
+git tag T-1.0
+git show T-1.0
+
+git tag -d T-1.0  (delete tag on local)
+
+git tag T-1.0 cid
+git push origin T-1.0
+git push --tags  (to upload all tags at a time)
+
+git push origin -d T-1.0  (to delete tag in git-hub)
+
+Merge Vs Rebase
+===============
+git merge branch-name
+git rebase branch-name
+
+git pull --rebase
+
+Conflicts
+==========
+git merge --abort
+
+amend
+=====
+git commit --amend -m "label"
+
+diff
+====
+git diff branch1 branch2
+
+git diff file1 file2
+
+fetch
+=====
+git pull = git fetch + git merge
+
+fork
+====
+
+.gitignore
+===========
+touch .gitignore
+
+king1
+king2
+king3
+
+touch king1 king2 king3
+git status
+
+
+multi label
+===========
+git commit -m "label1" -m "label2" -m "label3"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
