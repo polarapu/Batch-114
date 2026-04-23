@@ -2,3 +2,7 @@ touch file20
 git add .
 git commit -m "file20"
 git push
+sample data
+from main 
+branch
+testing conflicts
