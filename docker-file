@@ -1,0 +1,17 @@
+FROM redhat/ubi9
+MAINTAINER "Prasad"
+RUN touch /opt/file1
+RUN mkdir /opt/dir1
+RUN yum install git -y
+RUN yum install wget -y
+RUN git config --global user.name "Prasad"
+RUN git config --global user.email "devopstraining2015@gmail.com"
+WORKDIR /opt
+RUN git clone https://github.com/polarapu/Batch-114.git
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.55/bin/apache-tomcat-10.1.55.tar.gz
+RUN tar -xvf apache-tomcat-10.1.55.tar.gz
+COPY tomcat-users.xml /opt/apache-tomcat-10.1.55/conf/
+#ENV export JAVA_HOME=/path
+EXPOSE 8085
+#CMD git --version
+ENTRYPOINT git --version
